@@ -1,0 +1,120 @@
+package codejam2018.round1;
+import java.util.*;
+import java.io.*;
+public class Solution {
+  public static void main(String[] args) {
+    Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+    int tt = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.
+    
+    for (int t = 1; t <= tt; ++t) {
+      int n = in.nextInt();
+      int l = in.nextInt();
+      
+	  //System.out.println();
+	  //System.out.println(1+"/"+n);
+
+      // Get 1 part decimal
+      double r1 = ((double)1/(double)n)*100;
+	  //System.out.println(r1);
+
+      long r1i = (long)r1;
+
+      double r1f = r1 - r1i;
+	  //System.out.println(r1f);
+	  
+	  double rr1f =r1f;
+	  int ii = 1;
+	  while(rr1f<0.5d && rr1f !=0){
+		  rr1f +=r1f;
+	      long rr1i = (long)rr1f;
+	      rr1f = rr1f - rr1i;
+	      ii++;
+	  }
+	  //System.out.println(ii + " to get to :" +rr1f);
+
+
+	  int currMax = 0;
+	  int sumC = 0;
+	  ArrayList<Integer> list = new ArrayList<Integer>();
+	  
+      for (int i = 0; i < l; ++i) {
+          long c = in.nextInt();
+          sumC+=c;
+          long roundc = 0;
+          double r2 = ((double)c/(double)n)*100;
+          long r2i = (long)r2;
+          double r2f = r2 - r2i;
+          if(r2f>=0.5d)
+        	  roundc = r2i +1;
+          else{
+        	  roundc = r2i;
+        	  if(r2f!=0d){
+	        	  int hm = 0;
+	        	  double rr2f = r2f;
+	        	  while(rr2f<0.5d){
+	        		  rr2f +=r2f;
+	        	      long rr2i = (long)rr2f;
+	        	      rr2f = rr2f - rr2i;
+	        	      hm++;
+	        	  }
+	        	  if(hm<=ii){
+	        		  list.add(hm);
+	        		  //System.out.println("list item :"+list.size() + ":"+hm);
+
+	        	  }
+        	  }
+          }
+
+          currMax += roundc;
+      }
+      
+      if(r1f==0){
+    	  System.out.println("Case #" + t + ": "+100);
+    	  continue;
+      } else if(r1f>=0.5d){
+    	  long max = currMax + (n - sumC)*(r1i+1);
+    	  System.out.println("Case #" + t + ": "+max);
+    	  continue;
+      }
+
+      int rem = n - sumC;
+	  //System.out.println("currentMax :"+currMax + " rem before:"+rem);
+
+      Collections.sort(list);
+      for(int j : list){
+    	  
+    	  if(rem>=j){
+    		  rem -= j;
+    		  currMax += (r1i*j)+1;
+    	  } else
+    		  break;
+    	  
+      }
+	  //System.out.println("currentMax after list:"+currMax);// + " rem :"+rem);
+
+	  int nb = rem/ii;
+	  rem = rem%ii;
+	  
+	  //System.out.println("rem :"+rem);
+	  //System.out.println("nb  :"+nb);
+	  //System.out.println("rem :"+rem);
+
+
+      //currMax+=(rem/ii)*(r1i+1);
+      //currMax+=nb*(r1i+1)*ii;
+      currMax+=nb*((r1i*ii)+1);
+
+
+      //rem = rem%ii;
+	  //System.out.println("currentMax after nb  :"+currMax + " rem :"+rem);
+
+      //currMax += (rem - (rem/ii))* (r1i);
+      currMax += rem* (r1i);
+	  //System.out.println("currentMax after rem  :"+currMax + " rem :"+rem);
+
+      
+	  System.out.println("Case #" + t + ": "+currMax);
+
+    }
+  }
+}

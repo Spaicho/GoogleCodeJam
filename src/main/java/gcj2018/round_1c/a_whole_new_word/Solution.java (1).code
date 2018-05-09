@@ -1,0 +1,94 @@
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+import java.io.*;
+public class Solution {
+  public static void main(String[] args) {
+    Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+    int tt = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.
+    
+    for (int t = 1; t <= tt; ++t) {
+      int n = in.nextInt();
+      int l = in.nextInt();
+      
+	  List<String> w = new ArrayList<String>();
+	  List<Set<Character>> lsc = new ArrayList<Set<Character>>();
+
+	  for(int i = 0;i<l;i++){
+		  Set<Character> sc = new HashSet<Character>();
+		  lsc.add(sc);
+	  }
+		  
+      for (int i = 0; i < n; ++i) {
+          String ww = in.next();
+          w.add(ww);
+          char[] wa = ww.toCharArray();
+          for(int j = 0; j<ww.length(); j++){
+        	  
+        	  boolean added = lsc.get(j).add(wa[j]);
+        		  
+          }
+          
+      }
+      String res = "-";
+      long difComb = 1;
+      for(int i = 0; i<lsc.size();i++)
+    	  difComb *= lsc.get(i).size();
+      
+      if(difComb<=n){
+    	  System.out.println("Case #" + t + ": "+res);
+    	  continue;
+      }
+      
+	  char[][] aa =  new char[lsc.size()][lsc.get(0).size()];
+      for(int i = 0; i<lsc.size();i++){
+    	  Set<Character> sc = lsc.get(i);
+    	  Iterator<Character> it = sc.iterator();
+          for(int j = 0; it.hasNext();j++){
+    		  aa[i][j] = it.next();
+          }
+      }
+      boolean found = false;
+      StringBuilder res2 = new StringBuilder();
+      
+      for(int i = 0; i<aa.length;i++){
+    	  for(int j = 0; j<aa[0].length;j++){
+    		  res2.append(aa[i][j]);
+    	  }
+      }
+      for(int x = 0;x<aa.length*aa[0].length;x++){
+           res2 =new StringBuilder();
+          int j = aa[0].length;
+          //int y = Math.random()
+
+          for(int i = 0; i<aa.length;i++){
+              int randomNum = ThreadLocalRandom.current().nextInt(0, j);
+
+              //for(int j = 0; j<aa[i].length;j++){
+            	  res2.append(aa[i][randomNum]);
+              //}
+          }
+    	  //System.out.println(res2.toString());
+
+          if(!w.contains(res2.toString())){
+        	  found = true;
+        	  break;
+          }
+      }
+
+      if (found)
+    	  System.out.println("Case #" + t + ": "+res2.toString());
+      else
+    	  System.out.println("Case #" + t + ": "+res);
+
+      
+	  //System.out.println("Case #" + t + ": "+res2.toString());
+
+      
+
+    }
+
+      
+
+    
+  }
+}
