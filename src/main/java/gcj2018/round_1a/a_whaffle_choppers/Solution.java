@@ -28,6 +28,13 @@ public class Solution {
         	  }
           }
       }
+      
+      for (int i = 0; i < r; ++i) {
+    	  tr+=rr[i];
+      }
+      for (int i = 0; i < c; ++i) {
+    	  tc+=cc[i];
+      }
      boolean pp = true;
 
     int ttr = rr[0];
@@ -44,17 +51,12 @@ public class Solution {
 		  pp = false;
     }
     
-    if(pp && rr[0] != 0 && cc[0] != 0){
+    if(pp && rr[0] != 0 && cc[0] != 0 && !(tr == tc && tr == r*c)){
   	  System.out.println("Case #" + t + ": IMPOSSIBLE");
   	  continue;
     }
       
-      for (int i = 0; i < r; ++i) {
-    	  tr+=rr[i];
-      }
-      for (int i = 0; i < c; ++i) {
-    	  tc+=cc[i];
-      }
+
 
 
 
