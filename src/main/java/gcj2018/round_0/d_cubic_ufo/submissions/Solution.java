@@ -1,6 +1,10 @@
+package round_0.d_cubic_ufo.submissions;
+
 import java.util.*;
 import java.io.*;
+
 public class Solution {
+	
   public static void main(String[] args) {
     Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
     int t = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.
@@ -44,11 +48,12 @@ public class Solution {
     	      System.out.println(0 +" " + 0 + " "+ lv);
     	      break;
     	  } else if(y < 0){
-    		  lo = x; 
-    		  lv = v;
-    	  } else {
     		  hi = x;
     		  hv = v;
+    	  } else {
+    	
+    		  lo = x; 
+    		  lv = v;
     	  }
       }
 
