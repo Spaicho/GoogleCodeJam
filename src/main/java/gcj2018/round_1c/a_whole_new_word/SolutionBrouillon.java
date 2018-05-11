@@ -1,4 +1,4 @@
-package gcj2018.round_1c.a_whole_new_word;
+package round_1c.a_whole_new_word;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
