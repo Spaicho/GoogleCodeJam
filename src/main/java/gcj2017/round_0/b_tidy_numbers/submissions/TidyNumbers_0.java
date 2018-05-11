@@ -1,4 +1,4 @@
-package gcj2017.round_0.b_tidy_numbers.submissions;
+package round_0.b_tidy_numbers.submissions;
 import java.util.*;
 import java.io.*;
 

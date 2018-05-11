@@ -1,4 +1,4 @@
-package gcj2017.round_1a.a_alphabet_cake.submissions;
+package round_1a.a_alphabet_cake.submissions;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

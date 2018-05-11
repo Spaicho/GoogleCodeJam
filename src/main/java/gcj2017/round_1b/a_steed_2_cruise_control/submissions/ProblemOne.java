@@ -1,4 +1,4 @@
-package gcj2017.round_1b.a_steed_2_cruise_control.submissions;
+package round_1b.a_steed_2_cruise_control.submissions;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;

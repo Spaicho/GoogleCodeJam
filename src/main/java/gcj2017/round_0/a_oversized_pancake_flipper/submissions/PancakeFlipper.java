@@ -1,4 +1,4 @@
-package gcj2017.round_0.a_oversized_pancake_flipper.submissions;
+package round_0.a_oversized_pancake_flipper.submissions;
 import java.util.*;
 import java.io.*;
 
