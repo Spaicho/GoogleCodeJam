@@ -3,7 +3,7 @@ package round_1c.a_whole_new_word;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.io.*;
-public class SolutionBrouillon{
+public class WrongSolution{
   public static void main(String[] args) {
     Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
     int tt = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.

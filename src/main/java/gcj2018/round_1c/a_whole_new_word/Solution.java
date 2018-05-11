@@ -1,4 +1,5 @@
 package round_1c.a_whole_new_word;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.Timer;
 
 public class Solution{
 	
@@ -70,7 +70,7 @@ public class Solution{
 		StringBuilder sb = new StringBuilder();
 		recurse(lsc,w, sb,l);
 	
-}
+	}
 
 
 	private static void recurse(List<Set<Character>> aa, List<String> w, StringBuilder sb1, int i) {
@@ -97,15 +97,5 @@ public class Solution{
 		}
 		
 	}
-	
-	Thread x = new Thread(new Runnable() {
-		
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			
-		}
-	});
-
 
 }
