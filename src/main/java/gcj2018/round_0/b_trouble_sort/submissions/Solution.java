@@ -1,4 +1,4 @@
-package trouble.sort;
+package round_0.b_trouble_sort.submissions;
 import java.util.*;
 import java.io.*;
 public class Solution {
@@ -13,48 +13,36 @@ public class Solution {
 
       for (int j = 0; j <n; ++j) {
     	  int v = in.nextInt();
-    	  //v= (int) (v * Math.pow(10, 8));
     	  if(j%2==0)
     		  va.add(v);
     	  else
     		  vb.add(v);
       }
-      //System.out.println("va:"+va);
-      //System.out.println("vb:"+vb);
-
       Collections.sort(va);
       Collections.sort(vb);
-      
-      //System.out.println("after va:"+va);
-      //System.out.println("after vb:"+vb);
       
       int x =-1;
       for (int j = 0; j <n-1; ++j) {
     	  
-          //System.out.println("j:"+j);
-
+    	  
     	  if(j%2==0){
-              //System.out.println("va.get(j/2):"+va.get(j/2));
-              //System.out.println("vb.get(j/2):"+vb.get(j/2));
-
     		  if(va.get(j/2)>vb.get(j/2)){
     			  x=j;
     			  break;
     		  }
     	  } else {
-    		  //System.out.println("vb.get(j/2):"+vb.get(j/2));
-              //System.out.println("va.get(j/2 +1):"+va.get(j/2 +1));
     		  if(vb.get(j/2)>va.get(j/2 +1)){
     			  x=j;
     			  break;
+
     		  }
 
     	  }
       }
       if(x==-1)
-    	  System.out.println("Case #" + i + ": OKK");
+    	  System.out.println("Case #" + i + ": OK");
       else
-    	  System.out.println("Case #" + i + ": "+ x*x);
+    	  System.out.println("Case #" + i + ": "+ x);
 
     }
   }
