@@ -98,47 +98,47 @@ public class Solution {
 		
 	}
 
-}
- class Cake implements Comparable<Cake>{
-	int r;
-	int h;
-	double diff;
-	double s1;
-	double s2;
-	double s;
-	@Override
-	public int compareTo(Cake o) {
-		// TODO Auto-generated method stub
-//		if(diff>o.diff)
-//			return -1;
-//		else if(diff<o.diff)
-//			return 1;
-//		else if(r>o.r)
-//			return -1;
-//		else if(r==o.r)
-//			return h>o.h ? -1 : 1;
-//		else return 1;
-		// TODO Auto-generated method stub
-		if(s>o.s)
-			return -1;
-		else if(s<o.s)
-			return 1;
-		else if(r>o.r)
-			return -1;
-		else if(r==o.r)
-			return h>o.h ? -1 : 1;
-			else return 1;
-		
-	}
-	
-	Cake(int r, int h){
-		this.r = r;
-		this.h = h;
-		double h2 = h/2;
-		this.diff = r-h2;
-		s1 = r*r*Math.PI;
-		s2 = 2*r*h*Math.PI;
-		s = s1+s2;
-	}
-	
+	private static class Cake implements Comparable<Cake>{
+			int r;
+			int h;
+			double diff;
+			double s1;
+			double s2;
+			double s;
+			@Override
+			public int compareTo(Cake o) {
+				// TODO Auto-generated method stub
+//				if(diff>o.diff)
+//					return -1;
+//				else if(diff<o.diff)
+//					return 1;
+//				else if(r>o.r)
+//					return -1;
+//				else if(r==o.r)
+//					return h>o.h ? -1 : 1;
+//				else return 1;
+				// TODO Auto-generated method stub
+				if(s>o.s)
+					return -1;
+				else if(s<o.s)
+					return 1;
+				else if(r>o.r)
+					return -1;
+				else if(r==o.r)
+					return h>o.h ? -1 : 1;
+					else return 1;
+				
+			}
+			
+			Cake(int r, int h){
+				this.r = r;
+				this.h = h;
+				double h2 = h/2;
+				this.diff = r-h2;
+				s1 = r*r*Math.PI;
+				s2 = 2*r*h*Math.PI;
+				s = s1+s2;
+			}
+			
+		}
 }
