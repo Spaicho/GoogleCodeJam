@@ -1,26 +1,87 @@
 package round_0.a_saving_the_universe;
-import java.util.*;
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Solution {
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		try {
-//			System.setIn(new FileInputStream("input.txt"));
-			System.setIn(new FileInputStream("A-small-attempt7.in"));
-//			System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("output.txt"))));
+	private final static String  A_SMALL_PRACTICE_IN = "A-small-practice.in";
+	private final static String  A_LARGE_PRACTICE_IN = "A-large-practice.in";
+	
+	private final static String  A_SMALL_PRACTICE_OUT = "A-small-practice.out";
+	private final static String  A_LARGE_PRACTICE_OUT = "A-large-practice.out";
+	
+	private static String in;
+	private static String out;
 
-		} catch (FileNotFoundException e) {
+	
+	public static void main(String[] args) {
+		
+		in = A_LARGE_PRACTICE_IN;
+		out = A_LARGE_PRACTICE_OUT;
+		
+		try {
+			
+			System.setIn(Solution.class.getResourceAsStream(in));			
+			//System.setIn(new FileInputStream("A-small-practice.in"));
+
+//			String outPath = Solution.class.getResource(in).getPath().replace(".in", ".out").substring(1);
+//			System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(outPath))));
+			System.setOut(new PrintStream(new FileOutputStream(out)));
+
+		} catch (FileNotFoundException e) { // | URISyntaxException e) {
 			e.printStackTrace();
 		}
+		
 		Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 	    int t = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.
-	    for (int ind = 1; ind <= t; ++ind) {
+	    for (int i = 1; i <= t; ++i) {
+	    	int s = in.nextInt();
+	    	in.nextLine();
+	    	Map<String,Integer> map = new HashMap<>();
+		    for (int j = 0; j < s; ++j) {
+		    	String ss = in.nextLine(); // had to debug to find out we should not use next()
+		    	map.put(ss, 0);
+		    }
+		    int q = in.nextInt();
+		    in.nextLine();
+		    int res = 0;
+		    for (int j = 0; j < q; ++j) {
+		    	String qq = in.nextLine();
+		    	map.put(qq,map.get(qq)+1);
+		    	
+		    	boolean greatThanZero = true;
+		    	for(Integer e : map.values()){
+		    		int toint = e;
+		    		if(toint<1){
+		    			greatThanZero = false;
+		    			break;
+		    		}
+		    	}
+		    	if(greatThanZero){
+		    		res++;
+			    	for(String sss : map.keySet()){
+			    		map.put(sss, 0);
+			    	}
+			    	map.put(qq,map.get(qq)+1);
+		    	}
 
-	   //   System.out.println("Case #" + ind + ": " + res);
+		    }
+	    	System.out.println("Case #" + i + ": "+res);
+	   
 	    }
 		
 	}
