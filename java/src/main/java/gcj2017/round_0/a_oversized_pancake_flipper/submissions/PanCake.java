@@ -1,3 +1,5 @@
+package round_0.a_oversized_pancake_flipper.submissions;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;

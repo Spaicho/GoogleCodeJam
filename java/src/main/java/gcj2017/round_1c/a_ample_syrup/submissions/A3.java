@@ -1,4 +1,4 @@
-package round1.c;
+package round_1c.a_ample_syrup.submissions;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
