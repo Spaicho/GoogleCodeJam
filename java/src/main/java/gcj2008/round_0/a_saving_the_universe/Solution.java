@@ -1,14 +1,10 @@
 package round_0.a_saving_the_universe;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -19,34 +15,36 @@ public class Solution {
 	 * @param args
 	 */
 	private final static String  A_SMALL_PRACTICE_IN = "A-small-practice.in";
-	private final static String  A_LARGE_PRACTICE_IN = "A-large-practice.in";
-	
 	private final static String  A_SMALL_PRACTICE_OUT = "A-small-practice.out";
+
+	private final static String  A_LARGE_PRACTICE_IN = "A-large-practice.in";	
 	private final static String  A_LARGE_PRACTICE_OUT = "A-large-practice.out";
 	
-	private static String in;
-	private static String out;
+	private final static String CLASS_FILE_NAME = "Solution.class";
+	private final static String BIN_FOLDER = "/bin/";
+	private final static String INOUT_FOLDER = "/inout/";
 
 	
 	public static void main(String[] args) {
 		
-		in = A_LARGE_PRACTICE_IN;
-		out = A_LARGE_PRACTICE_OUT;
+		String input  = A_SMALL_PRACTICE_IN;
+		String output = A_SMALL_PRACTICE_OUT;
 		
 		try {
-			
-			System.setIn(Solution.class.getResourceAsStream(in));			
-			//System.setIn(new FileInputStream("A-small-practice.in"));
+			String inoutFolder = Solution.class.getResource(CLASS_FILE_NAME).getPath().substring(1).replace(BIN_FOLDER, INOUT_FOLDER).replace(CLASS_FILE_NAME, "");
 
-//			String outPath = Solution.class.getResource(in).getPath().replace(".in", ".out").substring(1);
-//			System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(outPath))));
-			System.setOut(new PrintStream(new FileOutputStream(out)));
+			String inPath = inoutFolder + input;
+			String outPath = inoutFolder + output;
+			
+			System.setIn(new FileInputStream(inPath));
+			System.setOut(new PrintStream(new FileOutputStream(outPath)));
 
 		} catch (FileNotFoundException e) { // | URISyntaxException e) {
 			e.printStackTrace();
 		}
 		
 		Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+		
 	    int t = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.
 	    for (int i = 1; i <= t; ++i) {
 	    	int s = in.nextInt();
