@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/java/gcj2008"/>
-	<classpathentry kind="src" path="src/main/java/gcj2017"/>
-	<classpathentry kind="src" path="src/main/java/gcj2018"/>
+	<classpathentry kind="src" output="bin/gcj2008" path="src/main/java/gcj2008"/>
+	<classpathentry kind="src" output="bin/gcj2017" path="src/main/java/gcj2017"/>
+	<classpathentry kind="src" output="bin/gcj2018" path="src/main/java/gcj2018"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/CompetitiveProgramming/GoogleCodeJam/java/guava-23.0.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="binary"/>
 </classpath>
